@@ -27,8 +27,8 @@ export const selfScanItems: SelfScanItem[] = [
   },
   {
     id: 5,
-    theme: 'Privacy & bias',
-    statement: 'Ik kan risico\'s rond privacy/bias inschatten en passende maatregelen nemen.'
+    theme: 'Risico\'s van AI',
+    statement: 'Ik kan de belangrijkste risico\'s van AI inschatten (privacy, bias, hallucineren, duurzaamheid, cognitive offloading) en passende maatregelen nemen.'
   },
   {
     id: 6,
@@ -37,8 +37,8 @@ export const selfScanItems: SelfScanItem[] = [
   },
   {
     id: 7,
-    theme: 'Beperkingen & toekomst',
-    statement: 'Ik kan de beperkingen/nadelen van generatieve AI uitleggen: bias, hallucineren, cognitive offloading, privacy.'
+    theme: 'Toekomst van AI',
+    statement: 'Ik heb inzicht in de ontwikkelingen van AI en weet hoe ik deze ontwikkelingen bij kan houden.'
   },
   {
     id: 8,
