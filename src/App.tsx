@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from './components/Button';
 import SelfScanFlow from './components/SelfScanFlow';
 import ResultsScreen, { QuestionFeedback } from './components/ResultsScreen';

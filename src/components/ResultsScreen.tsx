@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from './Button';
 
 export interface QuestionFeedback {
@@ -17,13 +16,12 @@ interface ResultsScreenProps {
   onRestart: () => void;
 }
 
-const ResultsScreen: React.FC<ResultsScreenProps> = ({
+const ResultsScreen = ({
   totalScore,
   recommendation,
   feedback,
-  mode = 'selfscan',
   onRestart
-}) => {
+}: ResultsScreenProps) => {
   const isAdvanced = recommendation === 'advanced';
 
   // Map scores to colors (defined outside spider chart for reuse)
@@ -72,7 +70,7 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
     const polygonPoints = points.map(p => `${p.x},${p.y}`).join(' ');
 
     // Calculate label positions
-    const labels = feedback.map((item, index) => {
+    const labels = feedback.map((_item, index) => {
       const angle = (index * 2 * Math.PI) / numPoints - Math.PI / 2;
       const labelRadius = radius + 20;
       return {
@@ -87,7 +85,7 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
         {/* Circular grid lines for the three levels */}
         {[{scale: 0.4, color: '#f87171', label: '1'},
           {scale: 0.7, color: '#fbbf24', label: '2'},
-          {scale: 1, color: '#4ade80', label: '3'}].map((level, index) => (
+          {scale: 1, color: '#4ade80', label: '3'}].map((level) => (
           <circle
             key={level.scale}
             cx={centerX}
