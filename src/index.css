@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-purple-50 to-white min-h-screen;
+  }
+}
+
+@layer utilities {
+  .dotted-pattern {
+    background-image: radial-gradient(circle, rgba(161, 93, 245, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/90 border border-purple-100/50 shadow-card;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryPurple focus-visible:ring-offset-2;
+  }
+
+  .button-hover {
+    @apply transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+}
