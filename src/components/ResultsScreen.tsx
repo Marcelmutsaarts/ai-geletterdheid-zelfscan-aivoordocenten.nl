@@ -203,12 +203,12 @@ const ResultsScreen = ({
       {/* Hero Section */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-ink mb-4">
-          {isAdvanced ? 'Op naar verdieping!' : 'Aan de slag met de basis'}
+          {isAdvanced ? 'Sterke AI-geletterdheid!' : 'Op weg naar AI-geletterdheid!'}
         </h1>
         <p className="text-lg text-grayText max-w-2xl mx-auto">
           {isAdvanced
-            ? 'Je hebt een sterke zelfinschatting: je scoort bij 5 of meer thema\'s een 3. Bekijk de gevorderde cursus of losse modules om je kennis verder uit te breiden.'
-            : 'Je zelfscan laat zien dat je bij 0-4 thema\'s een sterke score hebt. De webinar-serie geeft je een stevig fundament in AI voor het onderwijs.'}
+            ? 'Je hebt bij 5 of meer thema\'s jezelf als \'Sterk\' beoordeeld. Dit wijst op een solide basis in AI voor het onderwijs.'
+            : 'Je hebt jezelf bij 0-4 thema\'s als \'Sterk\' beoordeeld. Er is nog ruimte voor groei in je AI-geletterdheid.'}
         </p>
       </div>
 
@@ -265,38 +265,10 @@ const ResultsScreen = ({
       </div>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        {isAdvanced ? (
-          <>
-            <Button
-              as="a"
-              variant="primary"
-              href="https://aivoordocenten.nl/gevorderde-cursus/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Bekijk gevorderde cursus
-            </Button>
-            <Button variant="ghost" onClick={onRestart}>
-              Opnieuw beginnen
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              as="a"
-              variant="primary"
-              href="https://aivoordocenten.nl/webinarserie-ai-in-het-onderwijs/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Naar de webinar-serie
-            </Button>
-            <Button variant="ghost" onClick={onRestart}>
-              Opnieuw beginnen
-            </Button>
-          </>
-        )}
+      <div className="flex justify-center mb-8">
+        <Button variant="primary" onClick={onRestart}>
+          Opnieuw beginnen
+        </Button>
       </div>
 
       {/* Detailed Feedback Cards */}

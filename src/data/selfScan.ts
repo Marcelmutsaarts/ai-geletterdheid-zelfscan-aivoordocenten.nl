@@ -13,12 +13,12 @@ export const selfScanItems: SelfScanItem[] = [
   {
     id: 2,
     theme: 'Prompting',
-    statement: 'Ik weet hoe ik een goede prompt moet opbouwen.'
+    statement: 'Ik weet hoe ik een prompt moet structureren om de gewenste output te krijgen.'
   },
   {
     id: 3,
     theme: 'Custom chatbots',
-    statement: 'Ik weet hoe ik een custom chatbot bouw en hoe ik custom instructions vormgeef.'
+    statement: 'Ik weet hoe ik een gepersonaliseerde chatbot moet bouwen en delen.'
   },
   {
     id: 4,
@@ -28,7 +28,7 @@ export const selfScanItems: SelfScanItem[] = [
   {
     id: 5,
     theme: 'Risico\'s van AI',
-    statement: 'Ik kan de belangrijkste risico\'s van AI inschatten (privacy, bias, hallucineren, duurzaamheid, cognitive offloading) en passende maatregelen nemen.'
+    statement: 'Ik kan de belangrijkste risico\'s (zoals bias, hallucineren, privacy, duurzaamheid en cognitive offloading) van AI in onderwijs inschatten en weet hoe ik hiermee om moet gaan.'
   },
   {
     id: 6,
@@ -43,6 +43,6 @@ export const selfScanItems: SelfScanItem[] = [
   {
     id: 8,
     theme: 'Adoptie & verandermanagement',
-    statement: 'Ik weet hoe ik collega\'s meekrijg in verantwoorde AI-adoptie op onze school.'
+    statement: 'Ik weet hoe ik collega\'s kan betrekken bij AI-ontwikkelingen en hen kan begeleiden in het verantwoord gebruik ervan.'
   }
 ];
