@@ -84,8 +84,8 @@ function App() {
     // Calculate total score (number of Ja's)
     const yesCount = selfScanScores.filter(score => score === 1).length;
 
-    // Determine recommendation based on number of Ja's
-    const recommendation = yesCount >= 5 ? 'advanced' : 'webinar';
+    // Determine recommendation: 6+ Ja = Gevorderd, 0-5 Ja = Beginner
+    const recommendation = yesCount >= 6 ? 'advanced' : 'webinar';
 
     setFeedback(feedbackData);
     setResultSummary({
