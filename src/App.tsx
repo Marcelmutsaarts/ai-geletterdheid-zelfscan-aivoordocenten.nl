@@ -129,25 +129,25 @@ function App() {
               {/* Welcome Card */}
               <div className="glass-card rounded-2xl p-8 text-center">
                 <h2 className="text-2xl font-semibold text-ink mb-4">
-                  Ontdek jouw AI-vaardigheden
+                  Hoe AI-geletterd ben jij?
                 </h2>
                 <p className="text-grayText mb-6">
-                  Deze zelfscan helpt je inzicht te krijgen in je huidige kennis en vaardigheden
-                  op het gebied van AI in het onderwijs. Bij elk thema geef je aan of je dit beheerst
-                  (Ja of Nee). Daarna krijg je direct inzicht in je AI-geletterdheid.
+                  Beantwoord 8 korte vragen over AI in het onderwijs en ontdek of je een
+                  beginner of gevorderde bent. Op basis van je resultaat krijg je direct
+                  een passend vervolgadvies: de webinar-serie of maatwerk scholing.
                 </p>
                 <div className="space-y-4 text-left mb-6">
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">Duurt ongeveer 2 minuten</span>
+                    <span className="text-grayText">8 vragen, klaar in 2 minuten</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">8 thema's over AI in onderwijs</span>
+                    <span className="text-grayText">Ontdek je niveau: beginner of gevorderd</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">Direct inzicht in je AI-geletterdheid</span>
+                    <span className="text-grayText">Direct een passend vervolgadvies</span>
                   </div>
                 </div>
                 <Button
