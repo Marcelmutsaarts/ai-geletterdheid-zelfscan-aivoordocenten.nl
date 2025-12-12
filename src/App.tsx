@@ -121,9 +121,6 @@ function App() {
                 <h1 className="text-5xl font-bold text-ink mb-4">
                   AI-geletterdheid zelfscan
                 </h1>
-                <p className="text-xl text-grayText">
-                  8 thema's. Direct een advies.
-                </p>
               </div>
 
               {/* Welcome Card */}
