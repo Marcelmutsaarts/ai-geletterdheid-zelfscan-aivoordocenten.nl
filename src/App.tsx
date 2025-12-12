@@ -68,32 +68,28 @@ function App() {
 
     // Generate feedback
     const feedbackData: QuestionFeedback[] = selfScanItems.map((item, index) => {
-      const rating = selfScanScores[index] || 1;
-      const labelMap = {
-        1: 'Beginner',
-        2: 'Redelijk',
-        3: 'Sterk'
-      };
-      const label = labelMap[rating as keyof typeof labelMap];
+      const answer = selfScanScores[index];
+      const isYes = answer === 1;
+      const label = isYes ? 'Ja' : 'Nee';
 
       return {
         id: item.id,
         title: `Thema ${item.id} - ${item.theme}`,
-        score: rating, // Keep original 1-3 scale for better visualization
-        feedback: `${item.statement} ${label} (gekozen: ${rating}/3)`,
-        displayLabel: `Inschaling: ${label} (${rating}/3)`
+        score: answer as number, // 0 = Nee, 1 = Ja
+        feedback: item.statement,
+        displayLabel: label
       };
     });
 
-    // Calculate total score (number of 3's)
-    const goodCount = selfScanScores.filter(score => score === 3).length;
+    // Calculate total score (number of Ja's)
+    const yesCount = selfScanScores.filter(score => score === 1).length;
 
-    // Determine recommendation
-    const recommendation = goodCount >= 5 ? 'advanced' : 'webinar';
+    // Determine recommendation based on number of Ja's
+    const recommendation = yesCount >= 5 ? 'advanced' : 'webinar';
 
     setFeedback(feedbackData);
     setResultSummary({
-      totalScore: goodCount,
+      totalScore: yesCount,
       recommendation,
       mode: 'selfscan'
     });
@@ -137,21 +133,21 @@ function App() {
                 </h2>
                 <p className="text-grayText mb-6">
                   Deze zelfscan helpt je inzicht te krijgen in je huidige kennis en vaardigheden
-                  op het gebied van AI in het onderwijs. Je beoordeelt jezelf op 8 belangrijke
-                  thema's en krijgt direct een persoonlijk leeradvies.
+                  op het gebied van AI in het onderwijs. Bij elk thema geef je aan of je dit beheerst
+                  (Ja of Nee). Daarna krijg je direct inzicht in je AI-geletterdheid.
                 </p>
                 <div className="space-y-4 text-left mb-6">
                   <div className="flex items-start">
-                    <span className="text-primaryPurple mr-2">✓</span>
-                    <span className="text-grayText">Duurt ongeveer 5 minuten</span>
+                    <span className="text-primaryPurple mr-2">&#10003;</span>
+                    <span className="text-grayText">Duurt ongeveer 2 minuten</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-primaryPurple mr-2">✓</span>
+                    <span className="text-primaryPurple mr-2">&#10003;</span>
                     <span className="text-grayText">8 thema's over AI in onderwijs</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-primaryPurple mr-2">✓</span>
-                    <span className="text-grayText">Direct persoonlijk leeradvies</span>
+                    <span className="text-primaryPurple mr-2">&#10003;</span>
+                    <span className="text-grayText">Direct inzicht in je AI-geletterdheid</span>
                   </div>
                 </div>
                 <Button

@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import ProgressBar from './ProgressBar';
 import Button from './Button';
@@ -15,7 +14,7 @@ interface SelfScanFlowProps {
   error: string | null;
 }
 
-const SelfScanFlow: React.FC<SelfScanFlowProps> = ({
+const SelfScanFlow = ({
   currentIndex,
   scores,
   item,
@@ -24,15 +23,9 @@ const SelfScanFlow: React.FC<SelfScanFlowProps> = ({
   onProceed,
   isLast,
   error
-}) => {
+}: SelfScanFlowProps) => {
   const currentScore = scores[currentIndex];
   const answeredCount = scores.filter(score => score !== null).length;
-
-  const ratingOptions = [
-    { value: 1, label: 'Beginner', description: 'Ik heb hier nog weinig ervaring mee' },
-    { value: 2, label: 'Redelijk', description: 'Ik heb enige kennis en ervaring' },
-    { value: 3, label: 'Sterk', description: 'Ik beheers dit goed' }
-  ];
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -58,40 +51,49 @@ const SelfScanFlow: React.FC<SelfScanFlowProps> = ({
         </div>
 
         {/* Statement */}
-        <h2 className="text-xl font-semibold text-ink mb-6">
+        <h2 className="text-xl font-semibold text-ink mb-8">
           {item.statement}
         </h2>
 
-        {/* Rating Options */}
-        <div className="space-y-3">
-          {ratingOptions.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => onSelect(option.value)}
-              className={clsx(
-                'w-full p-4 rounded-xl border-2 text-left transition-all duration-200',
-                'hover:border-primaryPurple hover:bg-lightPurpleBg/50',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryPurple focus-visible:ring-offset-2',
-                currentScore === option.value
-                  ? 'border-primaryPurple bg-lightPurpleBg'
-                  : 'border-gray-200 bg-white'
-              )}
-            >
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-primaryPurple mr-3">
-                  {option.value}
-                </span>
-                <div>
-                  <div className="font-semibold text-ink">
-                    {option.label}
-                  </div>
-                  <div className="text-sm text-grayText mt-1">
-                    {option.description}
-                  </div>
-                </div>
-              </div>
-            </button>
-          ))}
+        {/* Ja/Nee Buttons */}
+        <div className="flex gap-4">
+          <button
+            onClick={() => onSelect(1)}
+            className={clsx(
+              'flex-1 p-6 rounded-xl border-2 text-center transition-all duration-200',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+              currentScore === 1
+                ? 'border-green-500 bg-green-50 focus-visible:ring-green-500'
+                : 'border-gray-200 bg-white hover:border-green-400 hover:bg-green-50/50 focus-visible:ring-green-400'
+            )}
+          >
+            <div className="text-3xl mb-2">&#10003;</div>
+            <div className={clsx(
+              'text-xl font-bold',
+              currentScore === 1 ? 'text-green-600' : 'text-gray-700'
+            )}>
+              Ja
+            </div>
+          </button>
+
+          <button
+            onClick={() => onSelect(0)}
+            className={clsx(
+              'flex-1 p-6 rounded-xl border-2 text-center transition-all duration-200',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+              currentScore === 0
+                ? 'border-red-500 bg-red-50 focus-visible:ring-red-500'
+                : 'border-gray-200 bg-white hover:border-red-400 hover:bg-red-50/50 focus-visible:ring-red-400'
+            )}
+          >
+            <div className="text-3xl mb-2">&#10007;</div>
+            <div className={clsx(
+              'text-xl font-bold',
+              currentScore === 0 ? 'text-red-600' : 'text-gray-700'
+            )}>
+              Nee
+            </div>
+          </button>
         </div>
       </div>
 
@@ -105,16 +107,16 @@ const SelfScanFlow: React.FC<SelfScanFlowProps> = ({
           Vorige
         </Button>
 
-        {!currentScore && (
+        {currentScore === null && (
           <span className="text-sm text-grayText">
-            Kies een optie om door te gaan
+            Kies Ja of Nee om door te gaan
           </span>
         )}
 
         <Button
           variant="primary"
           onClick={onProceed}
-          disabled={!currentScore}
+          disabled={currentScore === null}
         >
           {isLast ? 'Afronden' : 'Volgende'}
         </Button>
