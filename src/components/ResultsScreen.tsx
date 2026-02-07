@@ -10,7 +10,7 @@ export interface QuestionFeedback {
 
 interface ResultsScreenProps {
   totalScore: number;
-  recommendation: 'webinar' | 'advanced';
+  recommendation: 'niet-basis' | 'basis';
   feedback: QuestionFeedback[];
   mode?: string;
   onRestart: () => void;
@@ -22,7 +22,7 @@ const ResultsScreen = ({
   feedback,
   onRestart
 }: ResultsScreenProps) => {
-  const isGevorderd = recommendation === 'advanced';
+  const isBasis = recommendation === 'basis';
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -31,56 +31,67 @@ const ResultsScreen = ({
         <div className="inline-block bg-lightPurpleBg rounded-2xl px-10 py-6">
           <span className="text-5xl font-bold text-primaryPurple">{totalScore}</span>
           <span className="text-2xl text-grayText">/{feedback.length}</span>
-          <div className="text-sm text-grayText mt-2">thema's met 'Ja'</div>
+          <div className="text-sm text-grayText mt-2">stellingen met 'Ja'</div>
         </div>
       </div>
 
       {/* Niveau Badge */}
       <div className="text-center mb-8">
         <span className={`inline-block px-6 py-3 text-xl font-bold rounded-full ${
-          isGevorderd
+          isBasis
             ? 'bg-green-100 text-green-700 border-2 border-green-300'
-            : 'bg-blue-100 text-blue-700 border-2 border-blue-300'
+            : 'bg-orange-100 text-orange-700 border-2 border-orange-300'
         }`}>
-          {isGevorderd ? 'Gevorderd' : 'Beginner'}
+          {isBasis ? 'Basisniveau bereikt' : 'Nog niet op basisniveau'}
         </span>
       </div>
 
-      {/* Vervolgstap Card */}
+      {/* Resultaat Card */}
       <div className="glass-card rounded-2xl p-8 mb-8">
-        {isGevorderd ? (
+        {isBasis ? (
           <>
             <h2 className="text-2xl font-bold text-ink mb-4 text-center">
-              Maatwerk vervolgscholing
+              Goed bezig!
             </h2>
-            <p className="text-grayText text-center mb-6">
-              Je hebt een stevige basis in AI voor het onderwijs.
-              Geef bij je eigen organisatie aan welke ontwikkelwensen je nog hebt,
-              zodat we maatwerk vervolgscholing kunnen aanbieden.
+            <p className="text-grayText text-center">
+              Je hebt een goede basiskennis van AI in het onderwijs. Je begrijpt
+              hoe generatieve AI werkt, kent de risico's en weet hoe je AI kunt
+              inzetten in je onderwijspraktijk. Blijf je kennis bijhouden en
+              experimenteer met nieuwe mogelijkheden om AI effectief te
+              blijven gebruiken.
             </p>
           </>
         ) : (
           <>
             <h2 className="text-2xl font-bold text-ink mb-4 text-center">
-              Start met de webinar-serie
+              Er valt nog veel te leren
             </h2>
-            <p className="text-grayText text-center mb-6">
-              De webinar-serie AI in het onderwijs geeft je een stevige basis
-              om aan de slag te gaan met AI in jouw onderwijspraktijk.
+            <p className="text-grayText text-center">
+              Je hebt nog stappen te zetten om het basisniveau van
+              AI-geletterdheid te bereiken. Dat is niet erg — de meeste docenten
+              staan hier. Door je kennis van AI-principes, verantwoord gebruik
+              en praktische toepassingen te verdiepen, kun je AI effectiever en
+              veiliger inzetten in je onderwijs.
             </p>
-            <div className="flex justify-center">
-              <Button
-                as="a"
-                variant="primary"
-                href="https://aivoordocenten.nl/webinarserie-ai-in-het-onderwijs/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Naar de webinar-serie
-              </Button>
-            </div>
           </>
         )}
+      </div>
+
+      {/* Overzicht per thema */}
+      <div className="glass-card rounded-2xl p-8 mb-8">
+        <h3 className="text-lg font-bold text-ink mb-4">Je antwoorden per thema</h3>
+        <div className="space-y-3">
+          {feedback.map((item) => (
+            <div key={item.id} className="flex items-start justify-between gap-3">
+              <span className="text-sm text-grayText flex-1">{item.feedback}</span>
+              <span className={`text-sm font-semibold whitespace-nowrap ${
+                item.score === 1 ? 'text-green-600' : 'text-orange-600'
+              }`}>
+                {item.displayLabel}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Opnieuw beginnen */}

@@ -5,44 +5,59 @@ export interface SelfScanItem {
 }
 
 export const selfScanItems: SelfScanItem[] = [
+  // Thema 1: Wat is generatieve AI & basis prompting
   {
     id: 1,
-    theme: 'Hoe werkt generatieve AI?',
-    statement: 'Ik weet hoe een LLM werkt en kan dat helder aan een collega uitleggen.'
+    theme: 'Generatieve AI & prompting',
+    statement: 'Ik kan in eigen woorden uitleggen wat generatieve AI is en hoe een taalmodel (LLM) globaal werkt.'
   },
   {
     id: 2,
-    theme: 'Prompting',
-    statement: 'Ik weet hoe ik een prompt moet structureren om de gewenste output te krijgen.'
+    theme: 'Generatieve AI & prompting',
+    statement: 'Ik kan een gestructureerde prompt schrijven om bruikbare output te krijgen.'
   },
+  // Thema 2: AI-ready toetsen
   {
     id: 3,
-    theme: 'Custom chatbots',
-    statement: 'Ik weet hoe ik een gepersonaliseerde chatbot moet bouwen en delen.'
+    theme: 'AI-ready toetsen',
+    statement: 'Ik weet welke toetsvormen kwetsbaar zijn voor AI-gebruik door studenten.'
   },
   {
     id: 4,
-    theme: 'Vibecoden',
-    statement: 'Ik begrijp hoe frontend, database en chatbot-integratie samenwerken in een AI-app.'
+    theme: 'AI-ready toetsen',
+    statement: 'Ik kan een toets zo (her)ontwerpen dat deze ook in het AI-tijdperk valide meet wat ik wil meten.'
   },
+  // Thema 3: AI als assistent van de docent
   {
     id: 5,
-    theme: 'Risico\'s van AI',
-    statement: 'Ik kan de belangrijkste risico\'s (zoals bias, hallucineren, privacy, duurzaamheid en cognitive offloading) van AI in onderwijs inschatten en weet hoe ik hiermee om moet gaan.'
+    theme: 'AI als assistent van de docent',
+    statement: 'Ik weet hoe ik AI kan inzetten voor lesvoorbereiding, het maken van toetsvragen of het geven van feedback.'
   },
   {
     id: 6,
-    theme: 'AI-ready toetsing',
-    statement: 'Ik kan een toets AI-ready maken.'
+    theme: 'AI als assistent van de docent',
+    statement: 'Ik weet hoe ik een custom chatbot kan bouwen en inzetten voor mijn onderwijs.'
   },
+  // Thema 4: AI als versterker van het leerproces
   {
     id: 7,
-    theme: 'Toekomst van AI',
-    statement: 'Ik heb inzicht in de ontwikkelingen van AI en weet hoe ik deze ontwikkelingen bij kan houden.'
+    theme: 'AI als versterker van het leerproces',
+    statement: 'Ik kan AI inzetten om gepersonaliseerde oefenstof of leeractiviteiten te maken voor studenten, gebaseerd op onderwijskundige rollen.'
   },
   {
     id: 8,
-    theme: 'Adoptie & verandermanagement',
-    statement: 'Ik weet hoe ik collega\'s kan betrekken bij AI-ontwikkelingen en hen kan begeleiden in het verantwoord gebruik ervan.'
+    theme: 'AI als versterker van het leerproces',
+    statement: 'Ik weet hoe ik een interactieve AI-leeromgeving kan opzetten die studenten activeert en motiveert.'
+  },
+  // Thema 5: Verantwoord AI-gebruik
+  {
+    id: 9,
+    theme: 'Verantwoord AI-gebruik',
+    statement: 'Ik kan de belangrijkste risico\'s van AI in onderwijs uitleggen en er rekening mee houden, zoals bias, hallucinaties, privacy en cognitive offloading.'
+  },
+  {
+    id: 10,
+    theme: 'Verantwoord AI-gebruik',
+    statement: 'Ik heb een beeld van hoe een verantwoord kader voor AI-gebruik eruitziet binnen mijn onderwijscontext.'
   }
 ];

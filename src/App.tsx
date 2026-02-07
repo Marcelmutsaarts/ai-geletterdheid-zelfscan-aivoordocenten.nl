@@ -8,7 +8,7 @@ type Stage = 'welcome' | 'selfscan' | 'results';
 
 interface ResultSummary {
   totalScore: number;
-  recommendation: 'webinar' | 'advanced';
+  recommendation: 'niet-basis' | 'basis';
   mode: 'selfscan';
 }
 
@@ -84,8 +84,8 @@ function App() {
     // Calculate total score (number of Ja's)
     const yesCount = selfScanScores.filter(score => score === 1).length;
 
-    // Determine recommendation: 6+ Ja = Gevorderd, 0-5 Ja = Beginner
-    const recommendation = yesCount >= 6 ? 'advanced' : 'webinar';
+    // Determine recommendation: 7+ Ja = Basisniveau, 0-6 Ja = Nog niet basis
+    const recommendation = yesCount >= 7 ? 'basis' : 'niet-basis';
 
     setFeedback(feedbackData);
     setResultSummary({
@@ -129,22 +129,22 @@ function App() {
                   Hoe AI-geletterd ben jij?
                 </h2>
                 <p className="text-grayText mb-6">
-                  Beantwoord 8 korte vragen over AI in het onderwijs en ontdek of je een
-                  beginner of gevorderde bent. Op basis van je resultaat krijg je direct
-                  een passend vervolgadvies: de webinar-serie of maatwerk scholing.
+                  Beantwoord 10 stellingen over AI in het onderwijs en ontdek
+                  of je al op basisniveau zit. Van prompting tot verantwoord
+                  gebruik: test je kennis en krijg direct inzicht in je niveau.
                 </p>
                 <div className="space-y-4 text-left mb-6">
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">8 vragen, klaar in 2 minuten</span>
+                    <span className="text-grayText">10 stellingen, klaar in 3 minuten</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">Ontdek je niveau: beginner of gevorderd</span>
+                    <span className="text-grayText">5 thema's: van AI-basics tot verantwoord gebruik</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-primaryPurple mr-2">&#10003;</span>
-                    <span className="text-grayText">Direct een passend vervolgadvies</span>
+                    <span className="text-grayText">Direct inzicht in je AI-geletterdheid</span>
                   </div>
                 </div>
                 <Button
